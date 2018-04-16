@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}Basic MTG Simulation{% endblock %}
+
+{% block content %}
+<div class='container-fluid text-center'>
+        <h1 class='p-2 m-2'>Results</h1>
+        <h3 class='text-success'>{{ stats }}</h3>
+        <div class="row mt-5 mx-5">
+            <div class="col text-dark class="m-2"">
+                <h4>Evo Wins: {{ p1 }}</h4> <h4>Non-Evo Wins: {{ p2 }}</h4>
+            </div>
+            <div class="col text-danger class="m-2"">
+                <h4>Played First Wins: {{ play1 }} </h4> <h4>Played Second Wins: {{ play2 }}</h4>
+            </div>
+        </div>
+        <div class="row m-4">
+            <div class="col text-primary class="m-2"">
+                <h4>Mill Wins: {{ mill }} </h4> <h4>Mana Starved Wins: {{ mana }} </h4> <h4> Combat Wins: {{ combat }} </h4>
+            </div>
+            <div class="col text-secondary class="m-2"">
+                <h4>Winning Round: {{ wr }}</h4>
+            </div>
+    </div>
+<h3 class="text-info">Example of Future Updates</h3>
+<div class='container-fluid text-center'>
+    <div class="row mt-2">
+    	<div class="col-lg-4 p-1">
+            <img class='img-fluid' src="/static/graph.png">
+        </div>
+        <div class="col-lg-4 p-1">
+            <img class='img-fluid' src="/static/goes.png">
+        </div>
+        <div class="col-lg-4 p-1">
+            <img class='img-fluid' src="/static/method.png">
+        </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/scripts.js"></script>
+{% endblock %}

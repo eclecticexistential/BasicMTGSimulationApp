@@ -1,0 +1,60 @@
+body {
+    background: aliceblue;
+    color: blue;
+}
+
+h3{
+    color:lavender;
+}
+
+#alert{
+    color: red;
+}
+
+#first div:first-child{
+    background:gray;
+}
+
+#first div:nth-of-type(2){
+    background: blueviolet;
+}
+
+#first div:nth-of-type(3){
+    background: #CCCDDD;
+}
+#first div:nth-of-type(4){
+    background:purple;
+}
+
+#second div:first-child{
+    background:blue;
+}
+
+#second div:nth-of-type(2){
+    border: 1px solid black;
+    background: white;
+}
+
+#second div:nth-of-type(2) h3{
+    color: gold;
+}
+
+#second div:nth-of-type(3){
+    background: black;
+}
+
+#second div:nth-of-type(4){
+    background: green;
+}
+
+#second div:nth-of-type(5){
+    background: darkred;
+}
+
+#last div:first-child{
+    background: olive;
+}
+
+#last div:nth-of-type(2){
+    background: slateblue;
+}
