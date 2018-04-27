@@ -201,13 +201,7 @@ def game_stats(rounds, player, mana, game, hand=None, method=None, winner=None, 
         insert_into_open_hand_db(mana, game, player, hand)
     if method and winner is None:
         insert_into_first_blood_db(mana, game, rounds, player, method, goes_first)
-    # if winner and method is "NoManaHand":
-    #     no_mana_hand.append([mana, game, rounds, player, goes_first])
     if winner and method is "ManaStarved":
         insert_into_mana_starved_db(mana, game, rounds, player, goes_first)
-    # if winner and method is "Milled":
-    #     milled_stats.append([mana, game, rounds, player, goes_first])
-    # if winner and method is "Combat":
-    #     death_by_combat.append([mana, game, rounds, player, goes_first])
     if method and winner:
         insert_into_who_wins_db(mana, game, rounds, player, method, goes_first)

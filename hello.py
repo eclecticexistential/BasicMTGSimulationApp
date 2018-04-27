@@ -1,21 +1,11 @@
-import sqlite3
 from flask import Flask, render_template, request, redirect, flash, url_for
 from db_classes import Game, provide_winner_insight
-from collect_stats import initialize_open_hand, initialize_mana_starved, initialize_who_wins, initialize_draw_into_win
 from dv import make_visual
 
 app = Flask(__name__)
 app.secret_key = 'some_secret'
 
 def get_stats(info):
-    open_hand_db_conn = sqlite3.connect('Open_hands.db')
-    mana_starved_db_conn = sqlite3.connect('Mana_starved.db')
-    who_wins_db_conn = sqlite3.connect('Who_wins.db')
-    draw_into_win_db_conn = sqlite3.connect('DrawCon.db')
-    initialize_open_hand()
-    initialize_mana_starved()
-    initialize_who_wins()
-    initialize_draw_into_win()
     copyit = info
     string = copyit.split(',')
     cc = int(string[0])
@@ -30,7 +20,7 @@ def get_stats(info):
     bombs = int(string[9])
     evos = int(string[10])
     stats = provide_winner_insight(Game(cc, mana, num_lands, removal, life_gain, tutor, draw_cards, combat_tricks, lil, bombs, evos))
-    # make_visual(stats)
+    make_visual(stats)
     return stats
 
 def make_string(cc, mana):
@@ -70,4 +60,4 @@ def internal_error(error):
     flash("Required Stats Are Not Met. Click Reset to Highlight Must Have Info.")
     return redirect(url_for('index'))
 	
-app.run(debug=True)
+app.run()
